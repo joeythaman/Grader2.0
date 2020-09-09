@@ -1,19 +1,21 @@
 import java.math.BigDecimal;
+import java.util.*;
 
 public class Runner {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        //Scantron scan = new Scantron();
-        //Scantron.scan("IMG_4120.bmp");
-        float one = 0.1f;
-        float two = 0.2f;
-        float max = Float.MAX_VALUE;
-        double max2 = 1.79769313e306;
-        float three = 300000000000f;
-        float onetwo = one+two;
-        System.out.printf("%f\n",max);
-        System.out.printf("%f\n",max2);
+        Scantron scan = new Scantron();
+        ArrayList<ArrayList<Character>> answers = Scantron.scan(args[0]);
+        ArrayList<ArrayList<Character>> newAnswers = new ArrayList<ArrayList<Character>>();;
+        for (int i = answers.size()-1; i >= 0; i--) {
+            if (answers.get(i).size() > 0) {
+                newAnswers.add(answers.get(i));
+            } else {
+                break;
+            }
+        }
+        System.out.println(newAnswers);
     }
 
 }
